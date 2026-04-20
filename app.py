@@ -2,10 +2,15 @@ FILE_NAME = "shopping_list.txt"
 
 
 def add_item(item):
+    item = item.strip()
+    if not item:
+        print("Nie można dodać pustego produktu.")
+        return
+
     with open(FILE_NAME, "a", encoding="utf-8") as file:
         file.write(f"[ ] {item}\n")
 
-
+        
 def show_list():
     with open(FILE_NAME, "r", encoding="utf-8") as file:
         content = file.read()
