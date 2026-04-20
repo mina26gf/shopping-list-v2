@@ -32,6 +32,15 @@ def mark_as_bought(item_name):
         file.writelines(updated_lines)
 
 
+def sort_list():
+    with open(FILE_NAME, "r", encoding="utf-8") as file:
+        lines = file.readlines()
+
+    lines.sort(key=lambda x: x.lower())
+
+    with open(FILE_NAME, "w", encoding="utf-8") as file:
+        file.writelines(lines)
+
 def main():
     while True:
         print("\n1 - Dodaj produkt")
